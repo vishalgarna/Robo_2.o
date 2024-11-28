@@ -1,5 +1,5 @@
-const stragegiesServices = require('../services/Stargegies.services')
-const stragegiesEvaluteFun = require('../services/Stargegies.services')
+const stragegiesServices = require('../apiServices/Stargegies.services')
+const EvaluteFun = require('../Appservices/EvaluteFuntions')
 
 exports.create = (req, res, next) => {
 
@@ -29,7 +29,7 @@ exports.create = (req, res, next) => {
             // ye func isliye call kara kyuki kisi user ne agar stragegies banyai deploya kari hai to 
             // to evalute functiom trigger ho jaye aur evalute kare jitni bhi ho usko  evalute karne lag jaye
        
-            stragegiesEvaluteFun.EvaluteStrategy()
+            EvaluteFun.EvaluteStrategy()
 
             res.status(200).send({
                 message: 200,
@@ -41,3 +41,64 @@ exports.create = (req, res, next) => {
 
 
 }
+
+exports.getstrateies  = (req,res, next)=> {
+  const params = {
+        id : req.body.userId,  
+    }
+
+    stragegiesServices.getStrategiesById(params , (err , result)=>{
+        if(err){
+           next(err); 
+        }
+
+        res.status(200).send({
+            message : 'succes',
+            data : result
+        })
+
+    })
+}
+
+exports.update  = (req,res, next)=> {
+    const params = {
+        "userId": req.body.strategyId,
+        "strategyName": req.body.strategyName,
+        "description": req.body.description,
+        "deployed": req.body.deployed,
+        "indicators": req.body.indicators,
+        "rules": req.body.rules
+
+      }
+  
+      stragegiesServices.updateStrategy(params , (err , result)=>{
+          if(err){
+             next(err); 
+          }
+  
+          res.status(200).send({
+              message : 'succes',
+              data : result
+          })
+  
+      })
+  }
+
+
+exports.delete  = (req,res, next)=> {
+    const params = {
+          id : req.body.strategyId,  
+      }
+  
+      stragegiesServices.deltestrategy(params , (err , result)=>{
+          if(err){
+             next(err); 
+          }
+  
+          res.status(200).send({
+              message : 'succes',
+              data : result
+          })
+  
+      })
+  }

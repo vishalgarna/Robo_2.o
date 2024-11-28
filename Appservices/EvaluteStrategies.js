@@ -1,24 +1,5 @@
-require('../config/db.config')
-const strategiesModel = require('../models/Strategies.Model');
-const EvaluteFunction = require('./EvaluteFuntions')
-
-async function CreateStagegies(params, callback) {
-
-    // if (!params.userId) return callback({ message: 'Please Provide userId', })
-
-    try {
-        const newmodel = new strategiesModel(params);
-        await newmodel.save().then((response) => {
-
-            return callback(null, response);
-        })
-    } catch (error) {
-        return callback({ message: `Error ${error}` })
-    }
-}
-
-
-// puri strategy ko evalute funcation
+const strategiesModel = require('../models/Strategies.Model')
+const EvaluteFunction = require('../Appservices/EvaluteFuntions')
 
 async function EvaluteStrategy() {
 
@@ -108,8 +89,4 @@ async function EvaluteStrategy() {
 }
 
 
-
-module.exports = {
-    CreateStagegies,
-    EvaluteStrategy
-}
+module.exports = {  EvaluteStrategy}

@@ -2,7 +2,7 @@ const talib = require('technicalindicators')
 const { GetCloseData } = require('./Historicaldata.services')
 
 
-const { SMA, RSI, MACD } = talib
+const { SMA, RSI, MACD,BollingerBands } = talib
 
 // SMA.calculate({
 //     period,

@@ -1,46 +1,40 @@
 
 const mongoose = require('mongoose');
 
-const UserModel = mongoose.model('Users', mongoose.Schema({
-    UserName: {
-        type: String,
-        
+
+const userSchema =  mongoose.Schema({
+  UserName: {
+      type: String,
+      
+  },
+  UserEmail: {
+      type: String,
+      required: true,
+  },
+  UserPassword: {
+      type: String,
+      required: true,
+  },
+  
+   accountNo : {
+
+      type: Number  
     },
-    UserEmail: {
-        type: String,
-        required: true,
-        unique: true,
+
+    accoutPass : {
+      type : String
     },
-    UserPassword: {
-        type: String,
-        required: true,
-    },
-    brokerAccount :[ {
-      accountNo : {
 
-        type: Number  
-      },
+    accountServer : {
+      type : String
+    }
 
-      accoutPass : {
-        type : String
-      },
-
-      accountServer : {
-        type : String
-      }
-
-    }],
-    UserStrategies: [{
-
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Strategies'
-
-    }]
 }, {
-    timestamps: true
+  timestamps: true
 }
 
 
-))
+)
+const userModel = mongoose.model('Users',userSchema)
 
-module.exports = UserModel;
+module.exports = {userModel};

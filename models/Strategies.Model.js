@@ -19,9 +19,9 @@ const strategySchema = new mongoose.Schema({
         type: Boolean,
 
     },
-    logicalOp: {
-        type: String,
-    },
+    // logicalOp: {
+    //     type: String,
+    // },
 
     indicators: [
         {
@@ -62,6 +62,9 @@ const strategySchema = new mongoose.Schema({
 
     orderDetails : {
         orderType: {
+            type : String
+        },
+        symbol : {
             type : String
         },
         volume : {

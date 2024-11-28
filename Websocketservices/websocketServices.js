@@ -70,6 +70,7 @@ const WsConnection = () => {
     ws.on('message', function incoming(data) {
         // Buffer to string conversion
         let readableData = data.toString('utf-8');
+        
         console.log(readableData);
 
         // If data is JSON, parse it
