@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { db1 } = require('../config/db.config');
 
 // Define Strategy Schema
 const strategySchema = new mongoose.Schema({
@@ -87,6 +88,6 @@ const strategySchema = new mongoose.Schema({
 });
 
 
-const StrategiesModel = mongoose.model('Strategies', strategySchema);
+const StrategiesModel = db1.model('Strategies', strategySchema);
 module.exports = {StrategiesModel};
 

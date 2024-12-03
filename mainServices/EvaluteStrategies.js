@@ -73,7 +73,12 @@ async function EvaluteStrategy() {
                                     console.log('no order are excecuted');  
                                 }
                                 else{
+
                                     // send email and message and show open orders in ui 
+                                 
+                                    // ya pe execute hone ke baad deployed ko false kar rahe hai 
+                                strategiesModel.findByIdAndUpdate(singleStrategies._id , {deployed : false})
+
                                 }
                              })
                             } catch (error) {

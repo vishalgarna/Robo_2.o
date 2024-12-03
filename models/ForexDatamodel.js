@@ -1,97 +1,79 @@
-
 const mongoose = require('mongoose');
+const { db2 } = require('../config/db.config');
 
 const forexdataSchema = mongoose.Schema({
-
     symbol: {
-        type: String
+        type: String,
+        
     },
     data15m: [{
         time: {
-            type: Number
-
-
+            type: Number,
+            
         },
         open: {
-            type: Number
-
-
+            type: Number,
+            
         },
         high: {
-            type: Number
-
-
+            type: Number,
+            
         },
         low: {
-            type: Number
-
-
+            type: Number,
+            
         },
         close: {
-            type: Number
-
-        },
-
+            type: Number,
+            
+        }
     }],
-
     data5m: [{
         time: {
-            type: Number
-
-
+            type: Number,
+            
         },
         open: {
-            type: Number
-
-
+            type: Number,
+            
         },
         high: {
-            type: Number
-
-
+            type: Number,
+            
         },
         low: {
-            type: Number
-
-
+            type: Number,
+            
         },
         close: {
-            type: Number
-
-        },
-
+            type: Number,
+            
+        }
     }],
-
     data1m: [{
         time: {
-            type: Number
-
-
+            type: Number,
+            
         },
         open: {
-            type: Number
-
-
+            type: Number,
+            
         },
         high: {
-            type: Number
-
-
+            type: Number,
+            
         },
         low: {
-            type: Number
-
-
+            type: Number,
+            
         },
         close: {
-            type: Number
+            type: Number,
+            
+        }
+    }]
+}, { timestamps: true });
 
-        },
-
-    }],
-}
-    , { timstamps: true })
-
-const ForexDataModel = mongoose.model('ForexData', forexdataSchema)
+const ForexDataModel = db2.model('ForexData', forexdataSchema);
 
 module.exports = { ForexDataModel };
