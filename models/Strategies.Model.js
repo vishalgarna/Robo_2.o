@@ -11,6 +11,9 @@ const strategySchema = new mongoose.Schema({
         type: String,
 
     },
+    timeframe : {
+        type: String,
+    },
     description: {
         type: String,
 
@@ -83,5 +86,7 @@ const strategySchema = new mongoose.Schema({
     timestamps: true // To track creation and update times 
 });
 
+
 const StrategiesModel = mongoose.model('Strategies', strategySchema);
-module.exports = StrategiesModel;
+module.exports = {StrategiesModel};
+

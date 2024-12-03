@@ -33,10 +33,12 @@ def OrderPlaced():
     else:
         print('ANdar aagaye iss id se ', account)
 
+
      
     if not (mt5.symbol_select(userdetails['symbol'])):
         print('le lo ladu aur dalo galat symbol ',userdetails['symbol'] )
-     
+
+   # jo request se details aaye wow nikal rahe hai   
     symbol = userdetails['symbol']
     symbol_info = mt5.symbol_info(symbol)
     print(userdetails['symbol'])
@@ -47,7 +49,7 @@ def OrderPlaced():
         "action": mt5.TRADE_ACTION_DEAL,
         "symbol" :userdetails['symbol'] or 'USDJPY',
         "type"  : mt5.ORDER_TYPE_BUY if userdetails['type'] == 'BUY' else mt5.ORDER_TYPE_SELL,
-        "price" : symbol_info.ask,
+        "price" : symbol_info.ask if userdetails['type'] == 'BUY' else symbol_info.bid,
        "volume" : 0.1
     }
 

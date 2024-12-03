@@ -5,25 +5,26 @@ exports.create  = (req, res, next)=>{
 
 
     console.log(req.body);
+    res.send();
     
-    const params  = {
-        "UserName" : req.body.userName,
-        "UserEmail" : req.body.email,
-        "UserPassword" : req.body.pass
-    }
+    // const params  = {
+    //     "UserName" : req.body.userName,
+    //     "UserEmail" : req.body.email,
+    //     "UserPassword" : req.body.pass
+    // }
 
-    userservices.createuser(params, (err, response)=>{
+    // userservices.createuser(params, (err, response)=>{
 
-        if(err){
-            next(err)
-        }
+    //     if(err){
+    //         next(err)
+    //     }
 
-        res.status(200).send({
-            message : "success",
-            data : response  
+    //     res.status(200).send({
+    //         message : "success",
+    //         data : response  
 
-        })
-    });
+    //     })
+    // });
 }
 
 exports.getalluers = (req, res, next)=>{
@@ -31,16 +32,17 @@ exports.getalluers = (req, res, next)=>{
     const params ={
 
     }
-    userservices.getuserAllusers(params , (err , response )=>{
+    // userservices.getuserAllusers(params , (err , response )=>{
 
-        if(err){
-            next(err)
-        }
+    //     if(err){
+    //         next(err)
+    //     }
 
-        res.status(200).send({
-            message : "succes",
-            data : response
-        })
-    })
+    //     res.status(200).send({
+    //         message : "succes",
+    //         data : response
+    //     })
+    // })
 
+    res.send('hy aall users ar ')
 }

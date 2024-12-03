@@ -4,7 +4,7 @@ const strategiesController = require('../controllers/Stragegiescontrollers')
 const userservices = require('../controllers/userController')
 
 // user routes
-router.post('/api/user-create',userservices.create);
+router.post('/api/create-user',userservices.create);
 router.get('/api/all-users' , userservices.getalluers)
 
 // strategy routes

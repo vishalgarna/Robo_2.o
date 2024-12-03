@@ -1,6 +1,6 @@
-require('../config/db.config')
+
 const strategiesModel = require('../models/Strategies.Model');
-const EvaluteFunction = require('../Appservices/EvaluteFuntions')
+const EvaluteFunction = require('../mainServices/EvaluteFuntions')
 
 async function CreateStagegies(params, callback) {
 

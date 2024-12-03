@@ -1,4 +1,4 @@
-require('./config/db.config')
+// require('./config/db.config')
 // require('./Websocketservices/websocketServices')
 
 const {errorhandling} = require('./erorHandling')
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.send('Sorry Aaapo Yaha Kuch Nahi milega !').status(200)
+    res.send('Sorry Aaapo Yaha Kuch Nahi milega !').status(401)
 })
 
 
